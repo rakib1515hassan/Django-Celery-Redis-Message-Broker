@@ -1,0 +1,90 @@
+{% extends 'layouts/master.html' %}
+{% load static %}
+
+{% block title %}
+Celert | Result
+{% endblock title %}
+
+{% block styles %}
+<style>
+
+</style>
+{% endblock styles %}
+
+{% block content %}
+
+
+<div class="card mb-3">
+    <div class="card-header">
+        <div class="row flex-between-end">
+            <div class="col-auto align-self-center">
+                <h5 class="mb-0">Calary Test</h5>
+            </div>
+        </div>
+    </div>
+    <div class="card-body bg-light">
+
+        <div style="display: flex;">
+            <div class="col-md-6" id="test_form">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="mb-3">
+                            <label class="form-label" for="number_1">First Number</label>
+                            <input class="form-control" id="number_1" type="number" placeholder="Write first number"
+                                name="number_1" />
+                        </div>
+            
+                        <div class="mb-3">
+                            <label class="form-label" for="number_2">Second Number</label>
+                            <input class="form-control" id="number_2" type="number" placeholder="Write second number"
+                                name="number_2" />
+                        </div>
+
+                        <div class="mb-3 mt-3 d-flex justify-content-end" >
+                            <button class="btn btn-outline-primary" type="submit">
+                                <i class="fa-solid fa-floppy-disk me-2"></i> Submit
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="col-md-6 p-4" id="test_result">
+                <h4 class="text-center" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Result</h4><hr>
+                <table width="100%" class="table table-bordered table-striped fs--1 mb-0">
+                    <thead class="bg-200 text-900">
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Task Id</td>
+                            <td>{{result_id}}</td>
+                        </tr>
+                        <tr>
+                            <td>View</td>
+                            <td>
+                                {% if result_id %}
+                                <a class="btn btn-outline-info me-1 mb-1 btn-sm" href="{% url 'demo:result_view' result_id %}">
+                                    <i class="fa-solid fa-share-from-square me-2"></i> View More
+                                </a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}
+
+
+{% block js %}
+
+{% endblock js %}

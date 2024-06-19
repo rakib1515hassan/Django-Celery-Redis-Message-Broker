@@ -2,12 +2,6 @@
 {% load static %}
 
 <nav class="navbar navbar-light navbar-vertical navbar-expand-xl" style="display: none">
-    {#    <script>#}
-    {#        var navbarStyle = localStorage.getItem("navbarStyle");#}
-    {#        if (navbarStyle && navbarStyle !== 'transparent') {#}
-    {#            document.querySelector('.navbar-vertical').classList.add(`navbar-${navbarStyle}`);#}
-    {#        }#}
-    {#    </script>#}
 
     <div class="d-flex align-items-center">
         <div class="toggle-icon-wrapper">
@@ -20,7 +14,7 @@
         </div>
         <a class="navbar-brand" href="{% url 'dashboards:home' %}">
             <div class="d-flex align-items-center py-1">
-                <img class="me-2" src="{% static 'assets/img/admin/pms_logo_1.png' %}" alt="" width="120"/>
+                <img class="me-2" src="{% static 'assets/img/admin/pms_logo_1.png' %}" alt="" width="120" height="80"/>
                 {#                <span class="font-sans-serif">AddressPMS</span>#}
             </div>
         </a>
@@ -43,6 +37,59 @@
                         </div>
                     </a>
                 </li>
+
+                <!-- Admin -->
+                <li class="nav-item">
+                    <!-- section title -->
+                    <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
+                        <div class="col-auto navbar-vertical-label">Celery Testing</div>
+                        <div class="col ps-0">
+                            <hr class="mb-0 navbar-vertical-divider">
+                        </div>
+                    </div>
+                
+                
+                    <!-- dropdown indicator of account setup-->
+                    <a class="nav-link dropdown-indicator {% active_menu request 'demo:test' %}"
+                        href="#demo-setup" role="demo-setup" data-bs-toggle="collapse" aria-expanded="false"
+                        aria-controls="demo-setup">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-icon">
+                                <i class="fa-solid fa-clock"></i>
+                            </span>
+                            <span class="nav-link-text ps-1">Celery Test</span>
+                        </div>
+                    </a>
+                
+                    <ul class="nav collapse {% active_menu request 'demo:test' 'show' %}"
+                        id="demo-setup">
+                        <li class="nav-item">
+                            <a class="nav-link {% active_menu request 'demo:test' %}" href="{% url 'demo:test' %}"
+                                aria-expanded="false">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1">Test</span>
+                                </div>
+                            </a>
+                        </li>
+                
+                        <li class="nav-item">
+                            <a class="nav-link {% active_menu request '' %}" href=""
+                                aria-expanded="false">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1">Result</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                
+                </li>
+
+
+
+
+
+
+
 
                 
                 <!-- Admin -->

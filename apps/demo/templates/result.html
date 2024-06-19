@@ -1,0 +1,98 @@
+{% extends 'layouts/master.html' %}
+{% load static %}
+
+{% block title %}
+Celert | Result
+{% endblock title %}
+
+{% block styles %}
+<style>
+
+</style>
+{% endblock styles %}
+
+{% block content %}
+
+
+<div class="card mb-3">
+    <div class="card-header">
+        <div class="row flex-between-end">
+            <div class="col-auto align-self-center">
+                <h5 class="mb-0">Calary Result</h5>
+            </div>
+        </div>
+    </div>
+    <div class="card-body bg-light">
+
+        <div>
+            <div id="test_result">
+                <h4 class="text-center"
+                    style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Result</h4>
+                <hr>
+
+                <table width="100%" class="table table-bordered table-striped fs--1 mb-0">
+                    <thead class="bg-200 text-900">
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Result Id</td>
+                            <td>{{result.id}}</td>
+                        </tr>
+
+                        <tr>
+                            <td>Task Id</td>
+                            <td>{{result.task_id}}</td>
+                        </tr>
+
+                        <tr>
+                            <td>Task Status</td>
+                            <td>
+                                {% if result.status == 'PENDING' %}
+                                    <span class="badge bg-warning px-4 py-2">Pending</span>
+                                {% elif result.status == 'SUCCESS' %}
+                                    <span class="badge bg-success px-4 py-2">Success</span>
+                                {% else %}
+                                    <span class="badge bg-danger px-4 py-2">Error</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Task State</td>
+                            <td>
+                                {% if result.state == 'PENDING' %}
+                                <span class="badge bg-warning px-4 py-2">Pending</span>
+                                {% elif result.state == 'SUCCESS' %}
+                                <span class="badge bg-success px-4 py-2">Success</span>
+                                {% else %}
+                                <span class="badge bg-danger px-4 py-2">Error</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Task Result</td>
+                            <td>
+                                <span class="fw-bold" style="font-size: large; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                    {{result.result}}
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}
+
+
+{% block js %}
+
+{% endblock js %}

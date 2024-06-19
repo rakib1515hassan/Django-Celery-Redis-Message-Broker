@@ -5,6 +5,7 @@ urlpatterns = [
     path('', include('apps.auth.urls',  namespace='auth')),
     path('', include('apps.dashboards.urls', namespace='dashboards')),
     path('admins/', include('apps.admin.urls', namespace='admins')),
+    path('demo/', include('apps.demo.urls', namespace='demo')),
 
 
 

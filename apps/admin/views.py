@@ -90,7 +90,7 @@ class AdminListView(View, LoginRequiredMixin):
 
     def get_queryset(self):
         queryset = User.objects.filter(
-                user_type = User.UserType.ADMIN
+                is_admin = True
             ).order_by('-created_at').exclude(id = self.request.user.id)
 
         search_query = self.request.GET.get('search', '')

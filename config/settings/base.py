@@ -45,6 +45,7 @@ CUSTOM_APPS = [
     'apps.core.apps.CoreConfig',                  # core
     'apps.users.apps.UsersConfig',                # users
     'apps.dashboards.apps.DashboardsConfig',      # dashboards
+    'apps.demo.apps.DemoConfig',                  # demo
 
 ]
 
@@ -113,6 +114,7 @@ TEMPLATES = [
             os.path.join(BASE_DIR, 'apps/dashboards/templates'),
             os.path.join(BASE_DIR, 'apps/auth/templates'),
             os.path.join(BASE_DIR, 'apps/admin/templates'),
+            os.path.join(BASE_DIR, 'apps/demo/templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -246,5 +248,6 @@ from config.packege.drf import *
 ##================= Service ===================================
 
 from config.services.email import *  
+from config.services.celery import * 
 
 
