@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from apps.demo import task
 
 
@@ -84,3 +85,14 @@ def result_view(request, task_id):
         'result': result,
     }
     return render(request, 'result.html', data)
+
+
+
+def start_task_view(request):
+    initial_value = 10  # শুরু সংখ্যা
+    increment_value = 2  # প্রতি ৫ সেকেন্ড পর পর যোগ করার সংখ্যা
+    max_iterations  = 10  # যোগ করার পরিমাণ, এখানে ১০ বার যোগ করা হবে
+
+    result = task.add_periodically.delay(initial_value, increment_value, max_iterations)
+
+    return HttpResponse(f"Task ID: {result.id}")

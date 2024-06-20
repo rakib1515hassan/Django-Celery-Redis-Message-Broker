@@ -58,7 +58,10 @@ THIRD_PARTY_APPS = [
     # 'ckeditor', 
     # 'ckeditor_uploader',
     'django_cleanup.apps.CleanupConfig',
+    
+    'django_celery_beat',                        # For Celery Bit (Periodic Task)
     'django_celery_results',                     # For Celery Backend Results 
+
 
 ]
 

@@ -64,6 +64,28 @@ def debug_task(self):
 
 
 
+##! For Periodic Task Management
+from time import sleep
+from datetime import timedelta
+from celery.schedules import crontab
+
+# app.conf.beat_schedule = {
+#         'every-10-seconds':{
+#         'task':'apps.demo.task.Test_Notification_Send',
+#         # 'schedule':10,                        # Every 10 second
+#         'schedule':timedelta(seconds=10),       # Every 10 second
+#         # 'schedule': crontab(minute='*/1'),    # Every 1 minute
+#         'args':('11111', )
+#     }
+#     # Add more periodic tasks as needed
+# }
+
+
+
+
+
+
+
 
 """ NOTE:- To install Celery, you need to install
 
@@ -93,6 +115,8 @@ def debug_task(self):
     ! For Debug mode
     >> celery -A config worker -l debug
 
+    ! For Start Celery Beat
+    >> celery -A config beat -l info
     
 
 """
