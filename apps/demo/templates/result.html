@@ -55,8 +55,12 @@ Celert | Result
                                     <span class="badge bg-warning px-4 py-2">Pending</span>
                                 {% elif result.status == 'SUCCESS' %}
                                     <span class="badge bg-success px-4 py-2">Success</span>
+                                {% elif result.status == 'STARTED' %}
+                                    <span class="badge bg-primary px-4 py-2">Started</span>
+                                {% elif result.status == 'RETRY' %}
+                                    <span class="badge bg-danger px-4 py-2">Re-Try</span>
                                 {% else %}
-                                    <span class="badge bg-danger px-4 py-2">Error</span>
+                                    <span class="badge bg-info px-4 py-2">{{result.status}}</span>
                                 {% endif %}
                             </td>
                         </tr>
@@ -65,11 +69,15 @@ Celert | Result
                             <td>Task State</td>
                             <td>
                                 {% if result.state == 'PENDING' %}
-                                <span class="badge bg-warning px-4 py-2">Pending</span>
+                                    <span class="badge bg-warning px-4 py-2">Pending</span>
                                 {% elif result.state == 'SUCCESS' %}
-                                <span class="badge bg-success px-4 py-2">Success</span>
+                                    <span class="badge bg-success px-4 py-2">Success</span>
+                                {% elif result.state == 'STARTED' %}
+                                    <span class="badge bg-primary px-4 py-2">Started</span>
+                                {% elif result.state == 'RETRY' %}
+                                    <span class="badge bg-danger px-4 py-2">Re-Try</span>
                                 {% else %}
-                                <span class="badge bg-danger px-4 py-2">Error</span>
+                                    <span class="badge bg-info px-4 py-2">{{result.state}}</span>
                                 {% endif %}
                             </td>
                         </tr>

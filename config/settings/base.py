@@ -58,6 +58,7 @@ THIRD_PARTY_APPS = [
     # 'ckeditor', 
     # 'ckeditor_uploader',
     'django_cleanup.apps.CleanupConfig',
+    'django_celery_results',                     # For Celery Backend Results 
 
 ]
 
@@ -141,7 +142,8 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
+#         # 'NAME': BASE_DIR / 'db.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
 
@@ -249,5 +251,8 @@ from config.packege.drf import *
 
 from config.services.email import *  
 from config.services.celery import * 
+
+
+
 
 

@@ -15,7 +15,7 @@ def test_1(x, y):
 # @app.task
 @shared_task   ##? এখানে shared_task এবং app.task একি কাজ করে, But আমাদের shared_task ব্যবহার করবো।
 def add(x, y):
-    sleep(20)          ##! 20 seconds delay করা হয়ছে For testing
+    sleep(10)          ##! 20 seconds delay করা হয়ছে For testing
     result = x + y
     return result
 

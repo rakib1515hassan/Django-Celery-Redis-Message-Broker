@@ -47,6 +47,12 @@ app.autodiscover_tasks()
 
 
 
+# print("+++++++++++++++++++++++++")
+# print(f"CELERY_RESULT_BACKEND: {settings.CELERY_RESULT_BACKEND}")
+# print("+++++++++++++++++++++++++")
+
+
+
 
 @app.task(bind=True, ignore_result=True)
 def debug_task(self):
@@ -83,5 +89,10 @@ def debug_task(self):
 
     ! To start celery worker
     >> python3 -m celery -A config worker -l info
+
+    ! For Debug mode
+    >> celery -A config worker -l debug
+
+    
 
 """

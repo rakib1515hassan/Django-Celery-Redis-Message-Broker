@@ -48,7 +48,8 @@ def test(request):
         num_1 = int(request.POST.get('number_1'))
         num_2 = int(request.POST.get('number_2'))
 
-        result = task.add.apply_async(args=[num_1, num_2])
+        # result = task.add.apply_async(args=[num_1, num_2])
+        result = task.add.delay(num_1, num_2)
 
         data = {
             'result_id': result.id
@@ -71,12 +72,13 @@ def result_view(request, task_id):
     print("Task Result =", result.result)
     print("---------------------")
 
-    ##! Task all Methods
-    print("++++++++++++++++++++++")
-    print("Task Ready   =", result.ready())
-    print("Task Successfule  =", result.successful())
-    print("Task Failed =", result.failed())
-    print("++++++++++++++++++++++")
+    # ##! Task all Methods
+    # print("++++++++++++++++++++++")
+    # print("Task Ready   =", result.ready())
+    # print("Task Successfule  =", result.successful())
+    # print("Task Failed =", result.failed())
+    # # print("Task Get =", result.get())  ## এটা আমরা Use করবো না, এটা Use করলে Result না আসা পর্জন্ত Wait করা লাগে
+    # print("++++++++++++++++++++++")
 
     data = {
         'result': result,
