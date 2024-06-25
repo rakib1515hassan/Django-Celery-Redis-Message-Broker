@@ -42,10 +42,16 @@ ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
 ## For Custom Apps Creat (apps/my_apps )
 CUSTOM_APPS = [
+    ##! For Admin Panel
     'apps.core.apps.CoreConfig',                  # core
     'apps.users.apps.UsersConfig',                # users
     'apps.dashboards.apps.DashboardsConfig',      # dashboards
     'apps.demo.apps.DemoConfig',                  # demo
+
+
+    ##! For Client Panel
+    # 'web.index.apps.IndexConfig',                 # index
+    # 'web.auth.apps.AuthConfig',                   # auth
 
 ]
 
@@ -114,11 +120,17 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
+            ##! For Admin Panel
             os.path.join(BASE_DIR, 'templates'),
             os.path.join(BASE_DIR, 'apps/dashboards/templates'),
             os.path.join(BASE_DIR, 'apps/auth/templates'),
             os.path.join(BASE_DIR, 'apps/admin/templates'),
             os.path.join(BASE_DIR, 'apps/demo/templates'),
+
+
+            ##! For Client Panel
+            os.path.join(BASE_DIR, 'web/index/templates'),
+            os.path.join(BASE_DIR, 'web/auth/templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
